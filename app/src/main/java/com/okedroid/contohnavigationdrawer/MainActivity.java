@@ -1,6 +1,5 @@
 package com.okedroid.contohnavigationdrawer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
+
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
@@ -18,11 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            // This method will trigger on item Click of navigation menu
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 if(menuItem.isChecked()) menuItem.setChecked(false);
@@ -71,18 +74,6 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         actionBarDrawerToggle.syncState();
-
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                goHasil();
-            }
-        });
-    }
-
-    private void goHasil() {
-        Intent intent = new Intent(MainActivity.this, InputActivity.class);
-        startActivity(intent);
     }
 
 

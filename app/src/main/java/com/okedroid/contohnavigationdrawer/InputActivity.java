@@ -1,6 +1,10 @@
 package com.okedroid.contohnavigationdrawer;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -9,12 +13,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
-public class InputActivity extends AppCompatActivity {
+import com.okedroid.contohnavigationdrawer.db.TaskContract;
+import com.okedroid.contohnavigationdrawer.db.TaskDbHelper;
+import java.sql.Date;
+import java.util.ArrayList;
+
+public class InputActivity extends AppCompatActivity  {
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +48,8 @@ public class InputActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
                     case R.id.navigation1:
+                        Intent intent = new Intent(InputActivity.this, MainActivity.class);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Beranda Telah Dipilih", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.navigation2:
@@ -55,6 +71,9 @@ public class InputActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.openDrawer, R.string.closeDrawer){
             @Override
@@ -73,7 +92,9 @@ public class InputActivity extends AppCompatActivity {
 
         actionBarDrawerToggle.syncState();
 
+
     }
+
     public void onStart(){
         super.onStart();
         EditText txtDate=(EditText) findViewById(R.id.editTextDate);
@@ -100,8 +121,6 @@ public class InputActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
-
-
-
 }

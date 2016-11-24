@@ -76,7 +76,7 @@
             app:srcCompat="@android:drawable/ic_lock_idle_alarm"
             android:id="@+id/imageView2"
             android:layout_marginBottom="11dp"
-            android:layout_above="@+id/buttonCreate"
+            android:layout_above="@+id/buttonAdd"
             android:layout_toRightOf="@+id/editTexttime"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" />
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="75dp"
-            android:id="@+id/buttonCreate"
+            android:id="@+id/buttonAdd"
             android:layout_below="@+id/editTexttime"
             android:layout_alignRight="@+id/imageView"
             android:layout_alignEnd="@+id/imageView" />

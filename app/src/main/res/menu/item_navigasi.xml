@@ -23,7 +23,7 @@
 
     <item
         android:id="@+id/navigasi_kategori_2"
-        android:title="@string/navigasi_kategori_2">
+        android:title="">
         <menu>
             <item
                 android:id="@+id/navigation4"
